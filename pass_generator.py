@@ -1,5 +1,7 @@
 """
 Password Generator
+Programming Language: Python
+Difficulty (1 to 10): 5
 
 This program allows users to generate random passwords of specified length and save them to a file. It provides options for customizing password generation and supports multiple password generation at once. The generated passwords are hashed using SHA-256 before being saved to the specified file. Users can copy the generated passwords to the clipboard for easy usage.
 
