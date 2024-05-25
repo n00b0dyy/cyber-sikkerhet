@@ -1,5 +1,5 @@
 # cyber-sikkerhet
-This repository contains my introductory projects related to cybersecurity and cryptography. As I am still learning, these basic programs include, among other things, scripts for encryption, decryption, and simple vulnerability scanning. They showcase my progress and understanding of fundamental concepts in these fields.
+This repository contains my introductory projects related to cybersecurity and cryptography. As I am still learning. These basic programs include, among other things, scripts for encryption, decryption, and simple vulnerability scanning. They showcase my progress and understanding of fundamental concepts in these fields.
 
 
        # Portfolio of Applications related to Cyber Security
