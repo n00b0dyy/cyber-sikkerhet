@@ -3,15 +3,20 @@ Password Generator
 Programming Language: Python
 Difficulty (1 to 10): 5
 
-This program allows users to generate random passwords of specified length and save them to a file. It provides options for customizing password generation and supports multiple password generation at once. The generated passwords are hashed using SHA-256 before being saved to the specified file. Users can copy the generated passwords to the clipboard for easy usage.
+This program allows users to generate random passwords of specified length and save them to a file. 
+It provides options for customizing password generation and supports multiple password generation at once. 
+The generated passwords are hashed using SHA-256 before being saved to the specified file. Users can copy the 
+generated passwords to the clipboard for easy usage.
 
 Functions:
 - generate_password(length, custom_characters=None):
-    Generates a random password of the specified length using custom characters if provided. If no custom characters are provided, it uses a default set of characters, including uppercase and lowercase letters, digits, and punctuation.
+    Generates a random password of the specified length using custom characters if provided. If no custom characters 
+    are provided, it uses a default set of characters, including uppercase and lowercase letters, digits, and punctuation.
 - hash_password(password):
     Hashes the given password using the SHA-256 algorithm and returns the hexadecimal digest.
 - save_hashed_password_to_file(password, filename):
-    Saves the hashed password to a specified file. If the file already exists, it prompts the user to confirm overwriting. The function returns the absolute path of the saved file.
+    Saves the hashed password to a specified file. If the file already exists, it prompts the user to confirm overwriting. 
+    The function returns the absolute path of the saved file.
 - password_strength(password):
     Evaluates and returns the strength of the password based on its length, categorizing it as "Weak", "Moderate", or "Strong".
 - copy_to_clipboard(password):
@@ -19,9 +24,11 @@ Functions:
 - generate_multiple_passwords(length, count, custom_characters=None):
     Generates multiple passwords of the specified length. The number of passwords generated is limited by a predefined maximum count.
 - save_hashed_passwords_with_category(passwords, category, filename):
-    Saves hashed passwords with the specified category to a file. If the file already exists, it prompts the user to confirm overwriting and allows clearing the existing file. The function returns the absolute path of the saved file.
+    Saves hashed passwords with the specified category to a file. If the file already exists, it prompts the user to confirm overwriting 
+    and allows clearing the existing file. The function returns the absolute path of the saved file.
 - generate_passwords_and_save():
-    Validates user input for password length, number of passwords, and filename. Generates the specified number of passwords, hashes them using SHA-256, and saves them to the specified file along with their categories. Displays the strengths of each generated password.
+    Validates user input for password length, number of passwords, and filename. Generates the specified number of passwords, 
+    hashes them using SHA-256, and saves them to the specified file along with their categories. Displays the strengths of each generated password.
 
 Usage:
 1. Enter the desired password length, number of passwords, and filename.
@@ -33,7 +40,8 @@ Usage:
 Dependencies:
 - random: Python module for generating pseudo-random numbers and selecting random elements from a sequence.
 - string: A module that contains sets of fixed characters such as letters of the alphabet, numbers, and special characters.
-- hashlib: Provides implementations of various cryptographic hash function algorithms, such as SHA-1, SHA-256, and MD5, enabling the creation of hashes for input data.
+- hashlib: Provides implementations of various cryptographic hash function algorithms, such as SHA-1, SHA-256, and MD5, enabling the 
+creation of hashes for input data.
 - os: A Python module that provides an interface to various operating system-dependent functions, such as file operations and process control.
 - tkinter: Python library for creating graphical user interfaces (GUIs).
 - filedialog from tkinter: A module that provides dialog boxes for selecting and saving files.
