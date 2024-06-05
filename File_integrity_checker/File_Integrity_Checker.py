@@ -1,6 +1,6 @@
 
 
-
+# soft wrap
 """
 File Integrity Checker
 Programming Language: Python
