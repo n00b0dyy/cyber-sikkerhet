@@ -1,3 +1,4 @@
+wrap
 """
 Pomodoro Timer Application with Encryption and Notification Features
 
