@@ -1,3 +1,4 @@
+#wrap
 """
 Password Generator
 Programming Language: Python
