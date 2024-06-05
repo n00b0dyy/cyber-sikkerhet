@@ -1,5 +1,5 @@
 
-# soft wrapx
+# soft wrap
 """
 ## Basic Network Scanner
 **Programming Language:** Python  
