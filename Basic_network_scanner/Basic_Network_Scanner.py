@@ -1,5 +1,4 @@
 
-
 """
 ## Basic Network Scanner
 **Programming Language:** Python  
@@ -68,21 +67,13 @@ This program provides a GUI-based network scanning tool using Tkinter. It allows
 - **tkinter**: Python library for creating graphical user interfaces (GUIs).
 - **scapy**: Python module for network packet manipulation and analysis.
 sr1: Sends a packet and waits for the first response. It returns only the first packet that answers the sent packet.
-
 srp: Sends and receives packets at the data link layer (Layer 2). It sends a packet and receives all responses, returning both the sent and received packets.
-
 IP: Constructs and manipulates IP packets. It allows setting fields such as source and destination IP addresses, protocol type, and more.
-
 ICMP: Constructs and manipulates ICMP packets. ICMP is used for sending error messages and operational information, commonly used with ping.
-
 ARP: Constructs and manipulates ARP packets. ARP (Address Resolution Protocol) is used to map IP network addresses to the hardware addresses used by data link protocols.
-
 Ether: Constructs and manipulates Ethernet frames. It allows setting fields such as source and destination MAC addresses and Ethernet type.
-
 TCP: Constructs and manipulates TCP packets. It allows setting fields such as source and destination ports, sequence numbers, flags, and more.
-
 UDP: Constructs and manipulates UDP packets. It allows setting fields such as source and destination ports and data payload.
-
 - **socket**: Low-level networking interface for checking open ports.
 - **csv**: Module for reading and writing CSV files.
 - **datetime**: Module for handling dates and times.
@@ -201,7 +192,7 @@ class NetworkScannerApp:
         
         # Determine the ports to scan based on user input
         if self.port_entry.get():
-            ports = [int(p.strip()) for p in self.port_entry.get().split(',')]
+            ports = [int(portx.strip()) for portx in self.port_entry.get().split(',')]
         elif self.port_range_start_entry.get() and self.port_range_end_entry.get():
             ports = list(range(int(self.port_range_start_entry.get()), int(self.port_range_end_entry.get()) + 1))
         
