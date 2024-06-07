@@ -148,7 +148,7 @@ class ScanThread(threading.Thread):
         for algorithm in algorithms:
             if algorithm == 'blake3':
                 hash_object = blake3.blake3()
-                with open(filePath, "rb") as f:
+                with open(filePath, "rb") as f: # Binary mode
                     while True:
                         data = f.read(65536)  # 64kb chunks
                         if not data:
@@ -159,7 +159,7 @@ class ScanThread(threading.Thread):
                 hash_func = getattr(hashlib, algorithm, None)
                 if hash_func:
                     hash_object = hash_func()
-                    with open(filePath, "rb") as f:
+                    with open(filePath, "rb") as f: # Binary mode
                         while True:
                             data = f.read(65536)  # 64kb chunks
                             if not data:
@@ -241,7 +241,10 @@ class FileIntegrityChecker(QMainWindow):
         """
         self.progressBar.setValue(0)
 
+
     @pyqtSlot()
+    ### The @pyqtSlot() decorator is used in PyQt to declare methods as slots. Slots in PyQt are functions that can be connected to signals. #Signals and slots are a communication mechanism in PyQt that allows objects to emit signals and other objects to receive them.
+                
     def selectFolder(self):
         """
         Opens a dialog for selecting a folder and updates the selected folder label.
@@ -327,7 +330,7 @@ class FileIntegrityChecker(QMainWindow):
         modified_files (list): A list of files with modified checksums.
         """
         self.mismatchedList.clear()  # Clear previous entries if any
-        database_file = "scan_results.json"
+        database_file = "scan_results.json" # Specify filepath
         existing_results = {}
         
         # Load existing results if the database file exists
@@ -376,7 +379,7 @@ class FileIntegrityChecker(QMainWindow):
         for algorithm in algorithms:
             if algorithm == 'blake3':
                 hash_object = blake3.blake3()
-                with open(filePath, "rb") as f:
+                with open(filePath, "rb") as f: # Binary mode 
                     while True:
                         data = f.read(65536)  # 64kb chunks
                         if not data:
@@ -387,7 +390,7 @@ class FileIntegrityChecker(QMainWindow):
                 hash_func = getattr(hashlib, algorithm, None)
                 if hash_func:
                     hash_object = hash_func()
-                    with open(filePath, "rb") as f:
+                    with open(filePath, "rb") as f: # Binary mode
                         while True:
                             data = f.read(65536)  # 64kb chunks
                             if not data:
@@ -407,24 +410,36 @@ class FileIntegrityChecker(QMainWindow):
         Returns:
         list: A list of files that have been modified.
         """
-        database_file = "scan_results.json" #specify path and filename 
+
+
+    def updateDatabase(self, filePath, checksums):
+        database_file = "scan_results.json"
         modified_files = []
         existing_results = {}
 
         if os.path.exists(database_file):
-            with open(database_file, "r") as f:
-                existing_results = json.load(f)
-
+            if os.path.getsize(database_file) > 0: 
+                with open(database_file, "r") as f:
+                    try:
+                        existing_results = json.load(f)
+                    except json.JSONDecodeError:
+                        print(f"Error decoding JSON from {database_file}. Initializing empty results.")
+                        existing_results = {}
+            else:
+                print(f"{database_file} is empty. Initializing empty results.")
+        else:
+            print(f"{database_file} does not exist. Initializing empty results.")
         if filePath in existing_results:
             if existing_results[filePath] != checksums:
                 modified_files.append(filePath)
-                existing_results[filePath] = checksums  
+                existing_results[filePath] = checksums
         else:
             existing_results[filePath] = checksums
-
         self.current_scan_results = existing_results
-
+        with open(database_file, "w") as f:
+            json.dump(existing_results, f, indent=4)
         return modified_files
+
 
     def closeEvent(self, event):
         """
@@ -435,7 +450,7 @@ class FileIntegrityChecker(QMainWindow):
         event (QCloseEvent): The close event.
         """
         # Update the checksum database with the latest results
-        database_file = "scan_results.json"
+        database_file = "scan_results.json" # Specify filepath
         if hasattr(self, 'current_scan_results'):
             with open(database_file, "w") as f:
                 json.dump(self.current_scan_results, f, indent=4) 
@@ -453,7 +468,7 @@ class FileIntegrityChecker(QMainWindow):
 
     
 
-    def compareResults(self, current_results, previous_results):
+    def compareResults(self, current_results, previous_results): #These attributes are dictionaries. We know this because the .items() method is used here. The .items() method is specific to dictionaries in Python. It returns an iterable object that produces key-value pairs.
         """
         Compares the current and previous checksum results and handles mismatches.
 
