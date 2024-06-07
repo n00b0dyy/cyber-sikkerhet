@@ -1,4 +1,4 @@
-wrap
+
 """
 Pomodoro Timer Application with Encryption and Notification Features
 
@@ -303,7 +303,7 @@ button_reset.grid(column=2, row=2)
 
 canvas = Canvas(window, width=200, height=224, bg=YELLOW, highlightthickness=0)
 try:
-    tomato_img = PhotoImage(file="C:\\python_vs\\canvas\\Solution - pomodoro-end\\tomato.png")
+    tomato_img = PhotoImage(file="C:\\python_vs\\My_Repo_Github\\cyber-sikkerhet\\Pomodoro_timer\\tomato.png")
 except Exception as e:
     tomato_img = None
     print(f"Error loading image: {e}")
